@@ -17,16 +17,8 @@ public class Producto {
         ) {
             this.nombre = nombre;
             this.codigo = codigo;
-            if(precio >= 0) {
-                this.precio = precio;
-            }else  {
-                throw new IllegalArgumentException("El precio no puede ser negativo");
-            }
-            if (stock >= 0) {
-                this.stock = stock;
-            } else {
-                throw new IllegalArgumentException("El stock no puede ser negativo");
-            }
+            setPrecio(precio);
+            setStock(stock);
             this.fechaVencimiento = fechaVencimiento;
             this.area = area;
         }
@@ -53,10 +45,10 @@ public class Producto {
     }
 
     public void setPrecio(double precio) {
-        if(precio >= 0) {
+        if (precio >= 0) {
             this.precio = precio;
-        }else  {
-            System.out.println("El precio no puede ser negativo");
+        } else {
+            throw new IllegalArgumentException("El precio no puede ser negativo");
         }
     }
 
@@ -68,7 +60,7 @@ public class Producto {
         if (stock >= 0) {
             this.stock = stock;
         } else {
-            System.out.println("El stock no puede ser negativo");
+            throw new IllegalArgumentException("El stock no puede ser negativo");
         }
     }
 
